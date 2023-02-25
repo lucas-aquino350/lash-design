@@ -16,5 +16,4 @@ public class ClienteApplicationService implements ClienteService {
 		log.info("[finish] ClienteApplicationService - criaCliente");
 		return null;
 	}
-
 }
