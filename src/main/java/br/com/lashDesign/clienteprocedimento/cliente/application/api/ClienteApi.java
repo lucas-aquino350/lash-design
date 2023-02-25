@@ -15,6 +15,6 @@ public interface ClienteApi {
 
 	@PostMapping
 	@ResponseStatus(code = HttpStatus.CREATED)
-	ClienteResponse postCliente(@Valid @RequestBody  ClienteRequest clienteRequesdt);
+	ClienteResponse postCliente(@Valid @RequestBody  ClienteRequest clienteRequest);
 	
 }
