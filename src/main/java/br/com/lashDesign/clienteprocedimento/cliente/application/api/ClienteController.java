@@ -1,5 +1,7 @@
 package br.com.lashDesign.clienteprocedimento.cliente.application.api;
 
+import java.util.List;
+
 import javax.validation.Valid;
 
 import org.springframework.web.bind.annotation.RestController;
@@ -21,5 +23,12 @@ public class ClienteController implements ClienteApi {
 		ClienteResponse clienteCriado = clienteService.criaCliente(clienteRequest);
 		log.info("[finish] ClienteController - postCliente");
 		return clienteCriado;
+	}
+
+	@Override
+	public List<ClienteListResponse> getTodosCliente() {
+		log.info("[start] ClienteController - getTodosCliente");
+		log.info("[finish] ClienteController - getTodosCliente");
+		return null;
 	}
 }
