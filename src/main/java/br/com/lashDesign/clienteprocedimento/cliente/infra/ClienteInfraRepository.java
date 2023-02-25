@@ -1,6 +1,7 @@
 package br.com.lashDesign.clienteprocedimento.cliente.infra;
 
 import java.util.List;
+import java.util.UUID;
 
 import org.springframework.stereotype.Repository;
 
@@ -30,5 +31,12 @@ public class ClienteInfraRepository implements ClienteRepository {
 		List<Cliente> todosClientes = clienteSpringDataJpaRepository.findAll();
 		log.info("[finish] ClienteInfraRepository - buscaTodosClientes");
 		return todosClientes;
+	}
+
+	@Override
+	public Cliente buscaClienteAtravesID(UUID idCliente) {
+		log.info("[start] ClienteInfraRepository - buscaClienteAtravesID");
+		log.info("[finish] ClienteInfraRepository - buscaClienteAtravesID");
+		return null;
 	}
 }
