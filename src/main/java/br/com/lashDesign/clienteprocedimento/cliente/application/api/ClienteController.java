@@ -1,11 +1,8 @@
 package br.com.lashDesign.clienteprocedimento.cliente.application.api;
 
 import java.util.List;
-
 import javax.validation.Valid;
-
 import org.springframework.web.bind.annotation.RestController;
-
 import br.com.lashDesign.clienteprocedimento.cliente.application.service.ClienteService;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.log4j.Log4j2;
@@ -28,7 +25,8 @@ public class ClienteController implements ClienteApi {
 	@Override
 	public List<ClienteListResponse> getTodosCliente() {
 		log.info("[start] ClienteController - getTodosCliente");
+		List<ClienteListResponse> clientes = clienteService. buscaTodosClientes();
 		log.info("[finish] ClienteController - getTodosCliente");
-		return null;
+		return clientes;
 	}
 }

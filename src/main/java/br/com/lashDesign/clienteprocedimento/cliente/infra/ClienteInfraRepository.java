@@ -1,5 +1,7 @@
 package br.com.lashDesign.clienteprocedimento.cliente.infra;
 
+import java.util.List;
+
 import org.springframework.stereotype.Repository;
 
 import br.com.lashDesign.clienteprocedimento.cliente.application.repository.ClienteRepository;
@@ -20,5 +22,13 @@ public class ClienteInfraRepository implements ClienteRepository {
 		clienteSpringDataJpaRepository.save(cliente);
 		log.info("[finish] ClienteInfraRepository - salva");
 		return cliente;
+	}
+
+	@Override
+	public List<Cliente> buscaTodosClientes() {
+		log.info("[start] ClienteInfraRepository - buscaTodosClientes");
+		List<Cliente> todosClientes = clienteSpringDataJpaRepository.findAll();
+		log.info("[finish] ClienteInfraRepository - buscaTodosClientes");
+		return todosClientes;
 	}
 }
