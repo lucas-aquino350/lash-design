@@ -14,6 +14,7 @@ import javax.validation.constraints.NotNull;
 import org.hibernate.validator.constraints.br.CPF;
 import org.springframework.data.annotation.Id;
 
+import br.com.lashDesign.clienteprocedimento.cliente.application.api.ClienteRequest;
 import lombok.AccessLevel;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -44,17 +45,13 @@ public class Cliente {
 	private LocalDateTime dataHoraCriacao;
 	private LocalDateTime dataHoraUltimaAlteracao;
 	
-	public Cliente(UUID idCliente, @NotBlank String nomeCompleto, @NotBlank @CPF String cpf, @NotBlank String telefone,
-			@NotBlank @Email String email, @NotNull LocalDate dataDeNascimento, @NotNull Boolean aceitaTermos,
-			LocalDateTime dataHoraCriacao, LocalDateTime dataHoraUltimaAlteracao) {
-		this.idCliente = idCliente;
-		this.nomeCompleto = nomeCompleto;
-		this.cpf = cpf;
-		this.telefone = telefone;
-		this.email = email;
-		this.dataDeNascimento = dataDeNascimento;
-		this.aceitaTermos = aceitaTermos;
-		this.dataHoraCriacao = dataHoraCriacao;
-		this.dataHoraUltimaAlteracao = dataHoraUltimaAlteracao;
+	public Cliente(ClienteRequest clienteRequest) {
+		this.nomeCompleto = clienteRequest.getNomeCompleto();
+		this.cpf = clienteRequest.getCpf();
+		this.telefone = clienteRequest.getTelefone();
+		this.email = clienteRequest.getEmail();
+		this.dataDeNascimento = clienteRequest.getDataDeNascimento();
+		this.aceitaTermos = clienteRequest.getAceitaTermos();
+		this.dataHoraCriacao = LocalDateTime.now();
 	}	
 }
