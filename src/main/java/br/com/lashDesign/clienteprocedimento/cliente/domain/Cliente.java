@@ -33,11 +33,13 @@ public class Cliente {
 	private String nomeCompleto;
 	@NotBlank
 	@CPF
+	@Column(unique = true)
 	private String cpf;
 	@NotBlank
 	private String telefone;
 	@NotBlank
 	@Email
+	@Column(unique = true)
 	private String email;
 	@NotNull
 	private LocalDate dataDeNascimento;
