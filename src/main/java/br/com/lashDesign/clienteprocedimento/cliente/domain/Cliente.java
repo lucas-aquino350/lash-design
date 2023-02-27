@@ -15,6 +15,7 @@ import javax.validation.constraints.NotNull;
 
 import org.hibernate.validator.constraints.br.CPF;
 
+import br.com.lashDesign.clienteprocedimento.cliente.application.api.ClienteAlteracaoRequest;
 import br.com.lashDesign.clienteprocedimento.cliente.application.api.ClienteRequest;
 import lombok.AccessLevel;
 import lombok.Getter;
@@ -57,5 +58,14 @@ public class Cliente {
 		this.dataDeNascimento = clienteRequest.getDataDeNascimento();
 		this.aceitaTermos = clienteRequest.getAceitaTermos();
 		this.dataHoraCriacao = LocalDateTime.now();
+	}
+
+	public void altera(ClienteAlteracaoRequest clienteAlteracaoRequest) {
+		this.nomeCompleto = clienteAlteracaoRequest.getNomeCompleto();
+		this.telefone = clienteAlteracaoRequest.getTelefone();
+		this.email = clienteAlteracaoRequest.getEmail();
+		this.dataDeNascimento = clienteAlteracaoRequest.getDataDeNascimento();
+		this.aceitaTermos = clienteAlteracaoRequest.getAceitaTermos();
+		this.dataHoraUltimaAlteracao = LocalDateTime.now();
 	}	
 }

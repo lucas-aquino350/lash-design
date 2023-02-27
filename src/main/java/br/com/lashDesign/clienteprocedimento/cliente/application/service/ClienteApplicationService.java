@@ -5,6 +5,7 @@ import java.util.UUID;
 
 import org.springframework.stereotype.Service;
 
+import br.com.lashDesign.clienteprocedimento.cliente.application.api.ClienteAlteracaoRequest;
 import br.com.lashDesign.clienteprocedimento.cliente.application.api.ClienteDetalhadoResponse;
 import br.com.lashDesign.clienteprocedimento.cliente.application.api.ClienteListResponse;
 import br.com.lashDesign.clienteprocedimento.cliente.application.api.ClienteRequest;
@@ -53,5 +54,14 @@ public class ClienteApplicationService implements ClienteService {
 		Cliente cliente = clienteRepository.buscaClienteAtravesID(idCliente);
 		clienteRepository.deletaCliente(cliente);
 		log.info("[finish] ClienteApplicationService - deletaClienteAtravesId");
+	}
+
+	@Override
+	public void patchAlteraCliente(UUID idCliente, ClienteAlteracaoRequest clienteAlteracaoRequest) {
+		log.info("[start] ClienteApplicationService - patchAlteraCliente");
+		Cliente cliente = clienteRepository.buscaClienteAtravesID(idCliente);
+		cliente.altera(clienteAlteracaoRequest);
+		clienteRepository.salva(cliente);
+		log.info("[finish] ClienteApplicationService - patchAlteraCliente");
 	}
 }
