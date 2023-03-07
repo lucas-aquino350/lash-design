@@ -23,7 +23,6 @@ public class ExtensionistaRequest {
 	private String cpf;
 	@NotBlank
 	private String telefone;
-	@NotBlank
 	private TipoDeTecnica tipoDeTecnica;
 	@NotBlank
 	@Email
