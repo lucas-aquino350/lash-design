@@ -13,6 +13,8 @@ import javax.validation.constraints.Email;
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotNull;
 import org.hibernate.validator.constraints.br.CPF;
+
+import br.com.lashDesign.clienteprocedimento.lash.application.api.ExtensionistaRequest;
 import lombok.AccessLevel;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -46,15 +48,12 @@ public class Extensionista {
 	private LocalDateTime dataHoraCriacao;
 	private LocalDateTime dataHoraUltimaAlteracao;
 	
-	public Extensionista(@NotBlank String nomeCompleto, @NotBlank @CPF String cpf, @NotBlank String telefone,
-			@NotBlank @Email String email, @NotNull LocalDate dataDeNascimento, LocalDateTime dataHoraCriacao,
-			LocalDateTime dataHoraUltimaAlteracao) {
-		this.nomeCompleto = nomeCompleto;
-		this.cpf = cpf;
-		this.telefone = telefone;
-		this.email = email;
-		this.dataDeNascimento = dataDeNascimento;
-		this.dataHoraCriacao = dataHoraCriacao;
-		this.dataHoraUltimaAlteracao = dataHoraUltimaAlteracao;
+	public Extensionista(ExtensionistaRequest extensionistaRequest) {
+		this.nomeCompleto = extensionistaRequest.getNomeCompleto();
+		this.cpf = extensionistaRequest.getCpf();
+		this.telefone = extensionistaRequest.getTelefone();
+		this.email = extensionistaRequest.getEmail();
+		this.dataDeNascimento = extensionistaRequest.getDataDeNascimento();
+		this.dataHoraCriacao = LocalDateTime.now();
 	}
 }
