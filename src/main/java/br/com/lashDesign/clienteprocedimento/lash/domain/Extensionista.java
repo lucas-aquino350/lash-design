@@ -25,7 +25,7 @@ public class Extensionista {
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	@Column(columnDefinition = "uuid", name = "idCliente", updatable = false, unique = true, nullable = false)
-	private UUID idLash;
+	private UUID idExtensionista;
 	@NotBlank
 	private String nomeCompleto;
 	@NotBlank
