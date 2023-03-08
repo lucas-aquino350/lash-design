@@ -1,9 +1,11 @@
 package br.com.lashDesign.clienteprocedimento.lash.application.service;
 
 import java.util.List;
+import java.util.UUID;
 
 import org.springframework.stereotype.Service;
 
+import br.com.lashDesign.clienteprocedimento.lash.application.api.ExtensionistaDetalhadoResponse;
 import br.com.lashDesign.clienteprocedimento.lash.application.api.ExtensionistaListResponse;
 import br.com.lashDesign.clienteprocedimento.lash.application.api.ExtensionistaRequest;
 import br.com.lashDesign.clienteprocedimento.lash.application.api.ExtensionistaResponse;
@@ -35,5 +37,12 @@ public class ExtensionistaApplicationService implements ExtensionistaService {
 		List<Extensionista> extensionistas = extensionistaRepository.buscaTodasExtensionistas();
 		log.info("[finish] ExtensionistaApplicationService -  buscaTodasExtensionistas");
 		return ExtensionistaListResponse.converte(extensionistas);
+	}
+
+	@Override
+	public ExtensionistaDetalhadoResponse buscaExtensionistaAtravesId(UUID idExtensionista) {
+		log.info("[start] ExtensionistaApplicationService -  buscaExtensionistaAtravesId");
+		log.info("[finish] ExtensionistaApplicationService -  buscaExtensionistaAtravesId");
+		return null;
 	}
 }
