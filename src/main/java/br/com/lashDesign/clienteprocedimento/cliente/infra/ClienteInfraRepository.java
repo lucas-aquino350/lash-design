@@ -3,6 +3,7 @@ package br.com.lashDesign.clienteprocedimento.cliente.infra;
 import java.util.List;
 import java.util.UUID;
 
+import org.springframework.dao.DataIntegrityViolationException;
 import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Repository;
 
@@ -22,7 +23,11 @@ public class ClienteInfraRepository implements ClienteRepository {
 	@Override
 	public Cliente salva(Cliente cliente) {
 		log.info("[start] ClienteInfraRepository - salva");
-		clienteSpringDataJpaRepository.save(cliente);
+		try {
+			clienteSpringDataJpaRepository.save(cliente);
+		} catch(DataIntegrityViolationException e){
+		    throw APIException.build(HttpStatus.BAD_REQUEST, "Existem dados duplicados",e);
+		}
 		log.info("[finish] ClienteInfraRepository - salva");
 		return cliente;
 	}

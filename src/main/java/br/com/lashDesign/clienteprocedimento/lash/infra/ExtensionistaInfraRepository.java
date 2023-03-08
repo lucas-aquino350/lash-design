@@ -3,6 +3,7 @@ package br.com.lashDesign.clienteprocedimento.lash.infra;
 import java.util.List;
 import java.util.UUID;
 
+import org.springframework.dao.DataIntegrityViolationException;
 import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Repository;
 
@@ -22,7 +23,11 @@ public class ExtensionistaInfraRepository implements ExtensionistaRepository {
 	@Override
 	public Extensionista salva(Extensionista extensionista) {
 		log.info("[start] ExtensionistaInfraRepository - salva ");
-		extensionistaSpringDataJpaRepository.save(extensionista);
+		try {
+			extensionistaSpringDataJpaRepository.save(extensionista);
+		} catch(DataIntegrityViolationException e){
+		    throw APIException.build(HttpStatus.BAD_REQUEST, "Existem dados duplicados",e);
+		}
 		log.info("[finish] ExtensionistaInfraRepository - salva ");
 		return extensionista;
 	}
