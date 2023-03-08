@@ -27,7 +27,8 @@ public class ExtensionistaInfraRepository implements ExtensionistaRepository {
 	@Override
 	public List<Extensionista> buscaTodasExtensionistas() {
 		log.info("[start] ExtensionistaInfraRepository - buscaTodasExtensionistas ");
+		List<Extensionista> todasExtensionistas = extensionistaSpringDataJpaRepository.findAll();
 		log.info("[finish] ExtensionistaInfraRepository - buscaTodasExtensionistas ");
-		return null;
+		return todasExtensionistas;
 	}
 }

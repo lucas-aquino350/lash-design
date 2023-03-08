@@ -3,6 +3,7 @@ package br.com.lashDesign.clienteprocedimento.lash.application.api;
 import java.time.LocalDate;
 import java.util.List;
 import java.util.UUID;
+import java.util.stream.Collectors;
 
 import br.com.lashDesign.clienteprocedimento.lash.domain.Extensionista;
 import br.com.lashDesign.clienteprocedimento.lash.domain.TipoDeTecnica;
@@ -20,7 +21,16 @@ public class ExtensionistaListResponse {
 	private LocalDate dataDeNascimento;
 	
 	public static List<ExtensionistaListResponse> converte(List<Extensionista> extensionistas) {
-		// TODO Auto-generated method stub
-		return null;
+		return extensionistas.stream().map(ExtensionistaListResponse::new).collect(Collectors.toList());
+	}
+
+	public ExtensionistaListResponse(Extensionista extensionista) {
+		this.idExtensionista = extensionista.getIdExtensionista();
+		this.nomeCompleto = extensionista.getNomeCompleto();
+		this.cpf = extensionista.getCpf();
+		this.telefone = extensionista.getTelefone();
+		this.tipoDeTecnica = extensionista.getTipoDeTecnica();
+		this.email = extensionista.getEmail();
+		this.dataDeNascimento = extensionista.getDataDeNascimento();
 	}
 }
