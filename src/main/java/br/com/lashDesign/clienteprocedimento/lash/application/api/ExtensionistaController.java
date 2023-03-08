@@ -27,7 +27,8 @@ public class ExtensionistaController implements ExtensionistaApi {
 	@Override
 	public List<ExtensionistaListResponse> getTodosClientes() {
 		log.info("[start] ExtensionistaController - getTodosClientes");
+		 List<ExtensionistaListResponse> extensionistas = extensionistaService.buscaTodasExtensionistas();
 		log.info("[finish] ExtensionistaController - getTodosClientes");
-		return null;
+		return extensionistas;
 	}
 }

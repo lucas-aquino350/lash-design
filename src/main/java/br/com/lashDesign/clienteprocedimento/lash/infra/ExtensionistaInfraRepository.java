@@ -1,5 +1,7 @@
 package br.com.lashDesign.clienteprocedimento.lash.infra;
 
+import java.util.List;
+
 import org.springframework.stereotype.Repository;
 
 import br.com.lashDesign.clienteprocedimento.lash.application.repository.ExtensionistaRepository;
@@ -16,9 +18,16 @@ public class ExtensionistaInfraRepository implements ExtensionistaRepository {
 
 	@Override
 	public Extensionista salva(Extensionista extensionista) {
-		log.info("[START] ExtensionistaInfraRepository - SALVA ");
+		log.info("[start] ExtensionistaInfraRepository - salva ");
 		extensionistaSpringDataJpaRepository.save(extensionista);
-		log.info("[FINISH] ExtensionistaInfraRepository - SALVA ");
+		log.info("[finish] ExtensionistaInfraRepository - salva ");
 		return extensionista;
+	}
+
+	@Override
+	public List<Extensionista> buscaTodasExtensionistas() {
+		log.info("[start] ExtensionistaInfraRepository - buscaTodasExtensionistas ");
+		log.info("[finish] ExtensionistaInfraRepository - buscaTodasExtensionistas ");
+		return null;
 	}
 }
