@@ -43,4 +43,11 @@ public class ExtensionistaInfraRepository implements ExtensionistaRepository {
 		log.info("[finish] ExtensionistaInfraRepository - buscaExtensionistaAtravesId");
 		return extensionista;
 	}
+
+	@Override
+	public void deletaExtensionistaAtravesId(Extensionista extensionista) {
+		log.info("[start] ExtensionistaInfraRepository - deletaExtensionistaAtravesId");
+		extensionistaSpringDataJpaRepository.delete(extensionista);
+		log.info("[finish] ExtensionistaInfraRepository - deletaExtensionistaAtravesId");
+	}
 }

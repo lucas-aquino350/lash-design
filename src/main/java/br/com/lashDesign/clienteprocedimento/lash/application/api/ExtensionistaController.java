@@ -46,6 +46,7 @@ public class ExtensionistaController implements ExtensionistaApi {
 	public void deletaExtensionistaAtravesId(UUID idExtensionista) {
 		log.info("[start] ExtensionistaController - deletaExtensionistaAtravesId");
 		log.info("[idExtensionista] {}", idExtensionista);
+		extensionistaService.deletaExtensionista(idExtensionista);
 		log.info("[finish] ExtensionistaController - deletaExtensionistaAtravesId");
 	}
 }

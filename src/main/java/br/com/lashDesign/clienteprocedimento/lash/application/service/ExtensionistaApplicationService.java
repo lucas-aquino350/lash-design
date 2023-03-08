@@ -46,4 +46,12 @@ public class ExtensionistaApplicationService implements ExtensionistaService {
 		log.info("[finish] ExtensionistaApplicationService -  buscaExtensionistaAtravesId");
 		return new ExtensionistaDetalhadoResponse(extensionista);
 	}
+
+	@Override
+	public void deletaExtensionista(UUID idExtensionista) {
+		log.info("[start] ExtensionistaApplicationService -  deletaExtensionista");
+		Extensionista extensionista = extensionistaRepository.buscaExtensionistaAtravesId(idExtensionista);
+		extensionistaRepository.deletaExtensionistaAtravesId(extensionista);
+		log.info("[finish] ExtensionistaApplicationService -  deletaExtensionista");
+	}
 }

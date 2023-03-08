@@ -13,4 +13,5 @@ public interface ExtensionistaService {
 	ExtensionistaResponse criaExtensionista(ExtensionistaRequest extensionistaRequest);
 	List<ExtensionistaListResponse> buscaTodasExtensionistas();
 	ExtensionistaDetalhadoResponse buscaExtensionistaAtravesId(UUID idExtensionista);
+	void deletaExtensionista(UUID idExtensionista);
 }

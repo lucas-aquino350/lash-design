@@ -10,4 +10,5 @@ public interface ExtensionistaRepository {
 	Extensionista salva(Extensionista extensionista);
 	List<Extensionista> buscaTodasExtensionistas();
 	Extensionista buscaExtensionistaAtravesId(UUID idExtensionista);
+	void deletaExtensionistaAtravesId(Extensionista extensionista);
 }
