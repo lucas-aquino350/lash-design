@@ -41,4 +41,11 @@ public class ExtensionistaController implements ExtensionistaApi {
 		log.info("[finish] ExtensionistaController - getExtensionistaAtravesId");
 		return extensionistaDetalhado;
 	}
+
+	@Override
+	public void deletaExtensionistaAtravesId(UUID idExtensionista) {
+		log.info("[start] ExtensionistaController - deletaExtensionistaAtravesId");
+		log.info("[idExtensionista] {}", idExtensionista);
+		log.info("[finish] ExtensionistaController - deletaExtensionistaAtravesId");
+	}
 }
