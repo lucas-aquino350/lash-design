@@ -1,5 +1,7 @@
 package br.com.lashDesign.clienteprocedimento.lash.application.api;
 
+import java.util.List;
+
 import javax.validation.Valid;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -20,5 +22,12 @@ public class ExtensionistaController implements ExtensionistaApi {
 		ExtensionistaResponse extensionistaCriada = extensionistaService.criaExtensionista(extensionistaRequest);
 		log.info("[finish] ExtensionistaController - postExtensionista");
 		return extensionistaCriada;
+	}
+
+	@Override
+	public List<ExtensionistaListResponse> getTodosClientes() {
+		log.info("[start] ExtensionistaController - getTodosClientes");
+		log.info("[finish] ExtensionistaController - getTodosClientes");
+		return null;
 	}
 }
