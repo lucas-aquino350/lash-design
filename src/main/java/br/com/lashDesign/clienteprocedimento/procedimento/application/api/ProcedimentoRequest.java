@@ -8,7 +8,6 @@ import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotNull;
 
 import br.com.lashDesign.clienteprocedimento.procedimento.domain.Sala;
-import br.com.lashDesign.clienteprocedimento.procedimento.domain.StatusProcedimento;
 import br.com.lashDesign.clienteprocedimento.procedimento.domain.TipoTecnica;
 import lombok.Value;
 
@@ -23,7 +22,6 @@ public class ProcedimentoRequest {
 	@NotNull
 	private Double valor;
 	private Sala salaProcedimento;
-	private StatusProcedimento statusProcedimento;
 	@NotNull
 	private LocalDate dataDoProcedimento;
 	@NotNull

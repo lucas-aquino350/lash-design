@@ -56,10 +56,11 @@ public class Procedimento {
 		this.idExtensionista = idExtensionista;
 		this.valor = valor;
 		this.salaProcedimento = salaProcedimento;
-		this.statusProcedimento = statusProcedimento;
+		this.statusProcedimento = StatusProcedimento.A_fazer;
 		this.dataDoProcedimento = dataDoProcedimento;
 		this.horario = horario;
 		this.observacao = observacao;
 		this.proximaManutencao = proximaManutencao;
+		this.dataHoraCriacao = LocalDateTime.now();
 	}
 }
