@@ -49,4 +49,11 @@ public class ExtensionistaController implements ExtensionistaApi {
 		extensionistaService.deletaExtensionista(idExtensionista);
 		log.info("[finish] ExtensionistaController - deletaExtensionistaAtravesId");
 	}
+
+	@Override
+	public void patchAlteraExtensionista(UUID idExtensionista, @Valid ExtensionistaAlteracaoRequest extensionistaAlteracaoRequest) {
+		log.info("[start] ExtensionistaController -  patchAlteraExtensionista");
+		log.info("[idExtensionista] {}", idExtensionista);
+		log.info("[start] ExtensionistaController -  patchAlteraExtensionista");
+	}
 }
