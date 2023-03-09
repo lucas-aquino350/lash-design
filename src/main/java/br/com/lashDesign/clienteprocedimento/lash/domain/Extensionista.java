@@ -14,6 +14,7 @@ import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotNull;
 import org.hibernate.validator.constraints.br.CPF;
 
+import br.com.lashDesign.clienteprocedimento.lash.application.api.ExtensionistaAlteracaoRequest;
 import br.com.lashDesign.clienteprocedimento.lash.application.api.ExtensionistaRequest;
 import lombok.AccessLevel;
 import lombok.Getter;
@@ -51,8 +52,16 @@ public class Extensionista {
 		this.nomeCompleto = extensionistaRequest.getNomeCompleto();
 		this.cpf = extensionistaRequest.getCpf();
 		this.telefone = extensionistaRequest.getTelefone();
+		this.tipoDeTecnica = extensionistaRequest.getTipoDeTecnica();
 		this.email = extensionistaRequest.getEmail();
 		this.dataDeNascimento = extensionistaRequest.getDataDeNascimento();
 		this.dataHoraCriacao = LocalDateTime.now();
+	}
+
+	public void altera(ExtensionistaAlteracaoRequest extensionistaAlteracaoRequest) {
+		this.telefone = extensionistaAlteracaoRequest.getTelefone();
+		this.email = extensionistaAlteracaoRequest.getEmail();
+		this.tipoDeTecnica = extensionistaAlteracaoRequest.getTipoDeTecnica();
+		this.dataHoraUltimaAlteracao = LocalDateTime.now();
 	}
 }

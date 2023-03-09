@@ -5,6 +5,7 @@ import java.util.UUID;
 
 import org.springframework.stereotype.Service;
 
+import br.com.lashDesign.clienteprocedimento.lash.application.api.ExtensionistaAlteracaoRequest;
 import br.com.lashDesign.clienteprocedimento.lash.application.api.ExtensionistaDetalhadoResponse;
 import br.com.lashDesign.clienteprocedimento.lash.application.api.ExtensionistaListResponse;
 import br.com.lashDesign.clienteprocedimento.lash.application.api.ExtensionistaRequest;
@@ -53,5 +54,15 @@ public class ExtensionistaApplicationService implements ExtensionistaService {
 		Extensionista extensionista = extensionistaRepository.buscaExtensionistaAtravesId(idExtensionista);
 		extensionistaRepository.deletaExtensionistaAtravesId(extensionista);
 		log.info("[finish] ExtensionistaApplicationService -  deletaExtensionista");
+	}
+
+	@Override
+	public void patchAlteraExtensionista(UUID idExtensionista,
+			ExtensionistaAlteracaoRequest extensionistaAlteracaoRequest) {
+		log.info("[start] ExtensionistaApplicationService - patchAlteraExtensionista");
+		Extensionista extensionista = extensionistaRepository.buscaExtensionistaAtravesId(idExtensionista);
+		extensionista.altera(extensionistaAlteracaoRequest);
+		extensionistaRepository.salva(extensionista);
+		log.info("[finish] ExtensionistaApplicationService - patchAlteraExtensionista");
 	}
 }

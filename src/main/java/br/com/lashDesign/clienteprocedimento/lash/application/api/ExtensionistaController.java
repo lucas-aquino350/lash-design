@@ -54,6 +54,7 @@ public class ExtensionistaController implements ExtensionistaApi {
 	public void patchAlteraExtensionista(UUID idExtensionista, @Valid ExtensionistaAlteracaoRequest extensionistaAlteracaoRequest) {
 		log.info("[start] ExtensionistaController -  patchAlteraExtensionista");
 		log.info("[idExtensionista] {}", idExtensionista);
+		extensionistaService.patchAlteraExtensionista(idExtensionista, extensionistaAlteracaoRequest);
 		log.info("[start] ExtensionistaController -  patchAlteraExtensionista");
 	}
 }
