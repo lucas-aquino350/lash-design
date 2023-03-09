@@ -1,6 +1,7 @@
 package br.com.lashDesign.clienteprocedimento.procedimento.domain;
 
 import java.time.LocalDate;
+import java.time.LocalDateTime;
 import java.time.LocalTime;
 import java.util.UUID;
 
@@ -42,6 +43,9 @@ public class Procedimento {
     private String observacao;
 	@NotNull
     private LocalDate proximaManutencao;
+	
+	private LocalDateTime dataHoraCriacao;
+	private LocalDateTime dataHoraUltimaAlteracao;
 	
 	public Procedimento(@NotNull UUID idCliente, TipoTecnica tipoTecnica, @NotNull UUID idExtensionista,
 			@NotNull Double valor, Sala salaProcedimento, StatusProcedimento statusProcedimento,
