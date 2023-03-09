@@ -1,17 +1,17 @@
-package br.com.lashDesign.clienteprocedimento.lash.application.service;
+package br.com.lashDesign.clienteprocedimento.extensionista.application.service;
 
 import java.util.List;
 import java.util.UUID;
 
 import org.springframework.stereotype.Service;
 
-import br.com.lashDesign.clienteprocedimento.lash.application.api.ExtensionistaAlteracaoRequest;
-import br.com.lashDesign.clienteprocedimento.lash.application.api.ExtensionistaDetalhadoResponse;
-import br.com.lashDesign.clienteprocedimento.lash.application.api.ExtensionistaListResponse;
-import br.com.lashDesign.clienteprocedimento.lash.application.api.ExtensionistaRequest;
-import br.com.lashDesign.clienteprocedimento.lash.application.api.ExtensionistaResponse;
-import br.com.lashDesign.clienteprocedimento.lash.application.repository.ExtensionistaRepository;
-import br.com.lashDesign.clienteprocedimento.lash.domain.Extensionista;
+import br.com.lashDesign.clienteprocedimento.extensionista.application.api.ExtensionistaAlteracaoRequest;
+import br.com.lashDesign.clienteprocedimento.extensionista.application.api.ExtensionistaDetalhadoResponse;
+import br.com.lashDesign.clienteprocedimento.extensionista.application.api.ExtensionistaListResponse;
+import br.com.lashDesign.clienteprocedimento.extensionista.application.api.ExtensionistaRequest;
+import br.com.lashDesign.clienteprocedimento.extensionista.application.api.ExtensionistaResponse;
+import br.com.lashDesign.clienteprocedimento.extensionista.application.repository.ExtensionistaRepository;
+import br.com.lashDesign.clienteprocedimento.extensionista.domain.Extensionista;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.log4j.Log4j2;
 

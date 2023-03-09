@@ -1,15 +1,17 @@
-package br.com.lashDesign.clienteprocedimento.lash.application.api;
+package br.com.lashDesign.clienteprocedimento.extensionista.application.api;
 
 import java.time.LocalDate;
+import java.util.List;
 import java.util.UUID;
+import java.util.stream.Collectors;
 
-import br.com.lashDesign.clienteprocedimento.lash.domain.Extensionista;
-import br.com.lashDesign.clienteprocedimento.lash.domain.TipoDeTecnica;
+import br.com.lashDesign.clienteprocedimento.extensionista.domain.Extensionista;
+import br.com.lashDesign.clienteprocedimento.extensionista.domain.TipoDeTecnica;
 import lombok.Value;
 
 @Value
-public class ExtensionistaDetalhadoResponse {
-	
+public class ExtensionistaListResponse {
+ 
 	private UUID idExtensionista;
 	private String nomeCompleto;
 	private String cpf;
@@ -18,7 +20,11 @@ public class ExtensionistaDetalhadoResponse {
 	private String email;
 	private LocalDate dataDeNascimento;
 	
-	public ExtensionistaDetalhadoResponse(Extensionista extensionista) {
+	public static List<ExtensionistaListResponse> converte(List<Extensionista> extensionistas) {
+		return extensionistas.stream().map(ExtensionistaListResponse::new).collect(Collectors.toList());
+	}
+
+	public ExtensionistaListResponse(Extensionista extensionista) {
 		this.idExtensionista = extensionista.getIdExtensionista();
 		this.nomeCompleto = extensionista.getNomeCompleto();
 		this.cpf = extensionista.getCpf();

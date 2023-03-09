@@ -1,4 +1,4 @@
-package br.com.lashDesign.clienteprocedimento.lash.infra;
+package br.com.lashDesign.clienteprocedimento.extensionista.infra;
 
 import java.util.List;
 import java.util.UUID;
@@ -7,9 +7,9 @@ import org.springframework.dao.DataIntegrityViolationException;
 import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Repository;
 
+import br.com.lashDesign.clienteprocedimento.extensionista.application.repository.ExtensionistaRepository;
+import br.com.lashDesign.clienteprocedimento.extensionista.domain.Extensionista;
 import br.com.lashDesign.clienteprocedimento.handler.APIException;
-import br.com.lashDesign.clienteprocedimento.lash.application.repository.ExtensionistaRepository;
-import br.com.lashDesign.clienteprocedimento.lash.domain.Extensionista;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.log4j.Log4j2;
 

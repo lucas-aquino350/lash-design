@@ -1,9 +1,9 @@
-package br.com.lashDesign.clienteprocedimento.lash.application.repository;
+package br.com.lashDesign.clienteprocedimento.extensionista.application.repository;
 
 import java.util.List;
 import java.util.UUID;
 
-import br.com.lashDesign.clienteprocedimento.lash.domain.Extensionista;
+import br.com.lashDesign.clienteprocedimento.extensionista.domain.Extensionista;
 
 public interface ExtensionistaRepository {
 

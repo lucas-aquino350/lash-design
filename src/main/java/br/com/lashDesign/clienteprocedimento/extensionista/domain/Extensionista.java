@@ -1,4 +1,4 @@
-package br.com.lashDesign.clienteprocedimento.lash.domain;
+package br.com.lashDesign.clienteprocedimento.extensionista.domain;
 
 import java.time.LocalDate;
 import java.time.LocalDateTime;
@@ -14,8 +14,8 @@ import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotNull;
 import org.hibernate.validator.constraints.br.CPF;
 
-import br.com.lashDesign.clienteprocedimento.lash.application.api.ExtensionistaAlteracaoRequest;
-import br.com.lashDesign.clienteprocedimento.lash.application.api.ExtensionistaRequest;
+import br.com.lashDesign.clienteprocedimento.extensionista.application.api.ExtensionistaAlteracaoRequest;
+import br.com.lashDesign.clienteprocedimento.extensionista.application.api.ExtensionistaRequest;
 import lombok.AccessLevel;
 import lombok.Getter;
 import lombok.NoArgsConstructor;

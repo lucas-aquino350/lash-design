@@ -1,4 +1,4 @@
-package br.com.lashDesign.clienteprocedimento.lash.application.api;
+package br.com.lashDesign.clienteprocedimento.extensionista.application.api;
 
 import java.util.List;
 import java.util.UUID;
@@ -6,7 +6,7 @@ import java.util.UUID;
 import javax.validation.Valid;
 import org.springframework.web.bind.annotation.RestController;
 
-import br.com.lashDesign.clienteprocedimento.lash.application.service.ExtensionistaService;
+import br.com.lashDesign.clienteprocedimento.extensionista.application.service.ExtensionistaService;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.log4j.Log4j2;
 

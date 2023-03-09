@@ -1,4 +1,4 @@
-package br.com.lashDesign.clienteprocedimento.lash.application.api;
+package br.com.lashDesign.clienteprocedimento.extensionista.application.api;
 
 import java.time.LocalDate;
 
@@ -9,7 +9,7 @@ import javax.validation.constraints.NotNull;
 
 import org.hibernate.validator.constraints.br.CPF;
 
-import br.com.lashDesign.clienteprocedimento.lash.domain.TipoDeTecnica;
+import br.com.lashDesign.clienteprocedimento.extensionista.domain.TipoDeTecnica;
 import lombok.Value;
 
 @Value

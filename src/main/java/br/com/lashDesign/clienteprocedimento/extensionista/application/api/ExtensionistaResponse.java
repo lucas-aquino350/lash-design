@@ -1,4 +1,4 @@
-package br.com.lashDesign.clienteprocedimento.lash.application.api;
+package br.com.lashDesign.clienteprocedimento.extensionista.application.api;
 
 import java.util.UUID;
 
