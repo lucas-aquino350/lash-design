@@ -23,7 +23,7 @@ public class Procedimento {
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
-	@Column(columnDefinition = "uuid", name = "idCliente", updatable = false, unique = true, nullable = false)
+	@Column(columnDefinition = "uuid", name = "idProcedimento", updatable = false, unique = true, nullable = false)
 	private UUID idProcedimento;
 	@NotNull
 	private UUID idCliente;
