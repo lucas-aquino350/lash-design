@@ -27,7 +27,8 @@ public class ProcedimentoInfraRepository implements ProcedimentoRepository {
 	@Override
 	public List<Procedimento> buscaTodosProcedimentos() {
 		log.info("[start] ProcedimentoInfraRepository - buscaTodosProcedimentos");
+		List<Procedimento> todosProcedimentos = procedimentoSpringDataJpaRepository.findAll();
 		log.info("[finish] ProcedimentoInfraRepository - buscaTodosProcedimentos");
-		return null;
+		return todosProcedimentos;
 	}
 }

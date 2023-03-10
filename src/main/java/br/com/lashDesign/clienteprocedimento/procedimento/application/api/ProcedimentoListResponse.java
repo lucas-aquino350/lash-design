@@ -4,6 +4,7 @@ import java.time.LocalDate;
 import java.time.LocalTime;
 import java.util.List;
 import java.util.UUID;
+import java.util.stream.Collectors;
 
 import br.com.lashDesign.clienteprocedimento.procedimento.domain.Procedimento;
 import br.com.lashDesign.clienteprocedimento.procedimento.domain.Sala;
@@ -26,7 +27,20 @@ public class ProcedimentoListResponse {
     private LocalDate proximaManutencao;
     
 	public static List<ProcedimentoListResponse> converte(List<Procedimento> procedimentos) {
-		// TODO Auto-generated method stub
-		return null;
+		return procedimentos.stream().map(ProcedimentoListResponse::new).collect(Collectors.toList());
+	}
+
+	public ProcedimentoListResponse(Procedimento procedimento) {
+		this.idProcedimento = procedimento.getIdProcedimento();
+		this.idCliente = procedimento.getIdCliente();
+		this.tipoTecnica = procedimento.getTipoTecnica();
+		this.idExtensionista = procedimento.getIdExtensionista();
+		this.valor = procedimento.getValor();
+		this.salaProcedimento = procedimento.getSalaProcedimento();
+		this.statusProcedimento = procedimento.getStatusProcedimento();
+		this.dataDoProcedimento = procedimento.getDataDoProcedimento();
+		this.horario = procedimento.getHorario();
+		this.observacao = procedimento.getObservacao();
+		this.proximaManutencao = procedimento.getProximaManutencao();
 	}
 }
