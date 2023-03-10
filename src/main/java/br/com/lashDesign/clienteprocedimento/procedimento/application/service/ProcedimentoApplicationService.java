@@ -13,6 +13,7 @@ import br.com.lashDesign.clienteprocedimento.procedimento.application.api.Proced
 import br.com.lashDesign.clienteprocedimento.procedimento.application.api.ProcedimentoListResponse;
 import br.com.lashDesign.clienteprocedimento.procedimento.application.api.ProcedimentoRequest;
 import br.com.lashDesign.clienteprocedimento.procedimento.application.api.ProcedimentoResponse;
+import br.com.lashDesign.clienteprocedimento.procedimento.application.api.ProcedimentoIdResponse;
 import br.com.lashDesign.clienteprocedimento.procedimento.application.repository.ProcedimentoRepository;
 import br.com.lashDesign.clienteprocedimento.procedimento.domain.Procedimento;
 import lombok.RequiredArgsConstructor;
@@ -28,13 +29,13 @@ public class ProcedimentoApplicationService implements ProcedimentoService {
     private final ExtensionistaRepository extensionistaRepository;
 
 	@Override
-	public ProcedimentoResponse criaProcedimento(@Valid ProcedimentoRequest procedimentoRequest) {
+	public ProcedimentoIdResponse criaProcedimento(@Valid ProcedimentoRequest procedimentoRequest) {
 		log.info("[start] ProcedimentoApplicationService - criaProcedimento");
 		clienteRepository.buscaClienteAtravesID(procedimentoRequest.getIdCliente());
 		extensionistaRepository.buscaExtensionistaAtravesId(procedimentoRequest.getIdExtensionista());
 		Procedimento procedimento = procedimentoRepository.salva(new Procedimento(procedimentoRequest));
 		log.info("[finish] ProcedimentoApplicationService - criaProcedimento");
-		return ProcedimentoResponse.builder()
+		return ProcedimentoIdResponse.builder()
 				.idProcedimento(procedimento.getIdProcedimento())
 				.build();
 	}
@@ -53,5 +54,12 @@ public class ProcedimentoApplicationService implements ProcedimentoService {
 		Procedimento procedimento = procedimentoRepository.buscaProcedimentoAtraves(idProcedimento);
 		log.info("[finish] ProcedimentoApplicationService -  buscaProcedimentoAtravesId");
 		return new ProcedimentoDetalhadoResponse(procedimento);
+	}
+
+	@Override
+	public List<ProcedimentoResponse> buscaProcedimentosPorCliente(UUID idCliente) {
+		log.info("[start] ProcedimentoApplicationService -  buscaProcedimentosPorCliente");
+		log.info("[finish] ProcedimentoApplicationService -  buscaProcedimentosPorCliente");
+		return null;
 	}
 }

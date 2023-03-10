@@ -9,10 +9,12 @@ import br.com.lashDesign.clienteprocedimento.procedimento.application.api.Proced
 import br.com.lashDesign.clienteprocedimento.procedimento.application.api.ProcedimentoListResponse;
 import br.com.lashDesign.clienteprocedimento.procedimento.application.api.ProcedimentoRequest;
 import br.com.lashDesign.clienteprocedimento.procedimento.application.api.ProcedimentoResponse;
+import br.com.lashDesign.clienteprocedimento.procedimento.application.api.ProcedimentoIdResponse;
 
 public interface ProcedimentoService {
 
-	ProcedimentoResponse criaProcedimento(@Valid ProcedimentoRequest procedimentoRequest);
+	ProcedimentoIdResponse criaProcedimento(@Valid ProcedimentoRequest procedimentoRequest);
 	List<ProcedimentoListResponse> buscaTodosProcedimentos();
 	ProcedimentoDetalhadoResponse buscaProcedimentoAtravesId(UUID idProcedimento);
+	List<ProcedimentoResponse> buscaProcedimentosPorCliente(UUID idCliente);
 }
