@@ -40,7 +40,8 @@ public class ProcedimentoApplicationService implements ProcedimentoService {
 	@Override
 	public List<ProcedimentoListResponse> buscaTodosProcedimentos() {
 		log.info("[start] ProcedimentoApplicationService -  buscaTodosProcedimentos");
+		List<Procedimento> procedimentos = procedimentoRepository.buscaTodosProcedimentos();
 		log.info("[finish] ProcedimentoApplicationService -  buscaTodosProcedimentos");
-		return null;
+		return ProcedimentoListResponse.converte(procedimentos);
 	}
 }

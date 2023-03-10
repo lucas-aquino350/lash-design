@@ -2,8 +2,10 @@ package br.com.lashDesign.clienteprocedimento.procedimento.application.api;
 
 import java.time.LocalDate;
 import java.time.LocalTime;
+import java.util.List;
 import java.util.UUID;
 
+import br.com.lashDesign.clienteprocedimento.procedimento.domain.Procedimento;
 import br.com.lashDesign.clienteprocedimento.procedimento.domain.Sala;
 import br.com.lashDesign.clienteprocedimento.procedimento.domain.StatusProcedimento;
 import br.com.lashDesign.clienteprocedimento.procedimento.domain.TipoTecnica;
@@ -22,4 +24,9 @@ public class ProcedimentoListResponse {
     private LocalTime horario;
     private String observacao;
     private LocalDate proximaManutencao;
+    
+	public static List<ProcedimentoListResponse> converte(List<Procedimento> procedimentos) {
+		// TODO Auto-generated method stub
+		return null;
+	}
 }

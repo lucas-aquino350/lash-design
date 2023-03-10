@@ -1,5 +1,7 @@
 package br.com.lashDesign.clienteprocedimento.procedimento.infra;
 
+import java.util.List;
+
 import org.springframework.stereotype.Repository;
 
 import br.com.lashDesign.clienteprocedimento.procedimento.application.repository.ProcedimentoRepository;
@@ -20,5 +22,12 @@ public class ProcedimentoInfraRepository implements ProcedimentoRepository {
 		procedimentoSpringDataJpaRepository.save(procedimento);
 		log.info("[finish] ProcedimentoInfraRepository - salva");
 		return procedimento;
+	}
+
+	@Override
+	public List<Procedimento> buscaTodosProcedimentos() {
+		log.info("[start] ProcedimentoInfraRepository - buscaTodosProcedimentos");
+		log.info("[finish] ProcedimentoInfraRepository - buscaTodosProcedimentos");
+		return null;
 	}
 }
