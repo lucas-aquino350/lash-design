@@ -28,7 +28,8 @@ public class ProcedimentoController implements ProcedimentoApi {
 	@Override
 	public List<ProcedimentoListResponse> getTodosProcedimentos() {
 		log.info("[start] ProcedimentoController  - getTodosProcedimentos");
+		List<ProcedimentoListResponse> procedimentos = procedimentoService.buscaTodosProcedimentos();
 		log.info("[finish] ProcedimentoController  - getTodosProcedimentos");
-		return null;
+		return procedimentos;
 	}
 }

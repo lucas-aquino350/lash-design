@@ -1,11 +1,14 @@
 package br.com.lashDesign.clienteprocedimento.procedimento.application.service;
 
+import java.util.List;
+
 import javax.validation.Valid;
 
 import org.springframework.stereotype.Service;
 
 import br.com.lashDesign.clienteprocedimento.cliente.application.repository.ClienteRepository;
 import br.com.lashDesign.clienteprocedimento.extensionista.application.repository.ExtensionistaRepository;
+import br.com.lashDesign.clienteprocedimento.procedimento.application.api.ProcedimentoListResponse;
 import br.com.lashDesign.clienteprocedimento.procedimento.application.api.ProcedimentoRequest;
 import br.com.lashDesign.clienteprocedimento.procedimento.application.api.ProcedimentoResponse;
 import br.com.lashDesign.clienteprocedimento.procedimento.application.repository.ProcedimentoRepository;
@@ -32,5 +35,12 @@ public class ProcedimentoApplicationService implements ProcedimentoService {
 		return ProcedimentoResponse.builder()
 				.idProcedimento(procedimento.getIdProcedimento())
 				.build();
+	}
+
+	@Override
+	public List<ProcedimentoListResponse> buscaTodosProcedimentos() {
+		log.info("[start] ProcedimentoApplicationService -  buscaTodosProcedimentos");
+		log.info("[finish] ProcedimentoApplicationService -  buscaTodosProcedimentos");
+		return null;
 	}
 }
