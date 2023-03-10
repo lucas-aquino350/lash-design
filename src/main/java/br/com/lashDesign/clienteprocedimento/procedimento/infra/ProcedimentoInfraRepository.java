@@ -43,4 +43,12 @@ public class ProcedimentoInfraRepository implements ProcedimentoRepository {
 		log.info("[finish] ProcedimentoInfraRepository - buscaProcedimentoAtraves");
 		return procedimento;
 	}
+
+	@Override
+	public List<Procedimento> buscaProcedimentoPorCliente(UUID idCliente) {
+		log.info("[start] ProcedimentoInfraRepository - buscaProcedimentoPorCliente");
+		List<Procedimento> listaDeProcedimentos = procedimentoSpringDataJpaRepository.findAllByIdCliente(idCliente);
+		log.info("[finish] ProcedimentoInfraRepository - buscaProcedimentoPorCliente");
+		return listaDeProcedimentos;
+	}
 }

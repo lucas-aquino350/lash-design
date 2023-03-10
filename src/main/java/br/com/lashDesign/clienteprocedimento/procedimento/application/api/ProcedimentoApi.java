@@ -32,6 +32,6 @@ public interface ProcedimentoApi {
 	
 	@GetMapping("/listaPorCliente/{idCliente}")
     @ResponseStatus(code = HttpStatus.OK)
-    List<ProcedimentoResponse>buscaProcedimentosPorCliente( @PathVariable UUID idCliente);
+    List<ProcedimentoResponse> buscaProcedimentosPorCliente ( @PathVariable UUID idCliente);
 	
 }

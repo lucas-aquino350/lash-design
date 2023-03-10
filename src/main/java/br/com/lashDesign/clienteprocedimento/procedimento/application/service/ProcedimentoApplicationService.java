@@ -10,10 +10,10 @@ import org.springframework.stereotype.Service;
 import br.com.lashDesign.clienteprocedimento.cliente.application.repository.ClienteRepository;
 import br.com.lashDesign.clienteprocedimento.extensionista.application.repository.ExtensionistaRepository;
 import br.com.lashDesign.clienteprocedimento.procedimento.application.api.ProcedimentoDetalhadoResponse;
+import br.com.lashDesign.clienteprocedimento.procedimento.application.api.ProcedimentoIdResponse;
 import br.com.lashDesign.clienteprocedimento.procedimento.application.api.ProcedimentoListResponse;
 import br.com.lashDesign.clienteprocedimento.procedimento.application.api.ProcedimentoRequest;
 import br.com.lashDesign.clienteprocedimento.procedimento.application.api.ProcedimentoResponse;
-import br.com.lashDesign.clienteprocedimento.procedimento.application.api.ProcedimentoIdResponse;
 import br.com.lashDesign.clienteprocedimento.procedimento.application.repository.ProcedimentoRepository;
 import br.com.lashDesign.clienteprocedimento.procedimento.domain.Procedimento;
 import lombok.RequiredArgsConstructor;
@@ -59,7 +59,10 @@ public class ProcedimentoApplicationService implements ProcedimentoService {
 	@Override
 	public List<ProcedimentoResponse> buscaProcedimentosPorCliente(UUID idCliente) {
 		log.info("[start] ProcedimentoApplicationService -  buscaProcedimentosPorCliente");
+		clienteRepository.buscaClienteAtravesID(idCliente);
+		//List<Procedimento> procedimentos = procedimentoRepository.buscaTodosProcedimentos();
+		List<Procedimento> procedimentosDoCliente = procedimentoRepository.buscaProcedimentoPorCliente(idCliente);
 		log.info("[finish] ProcedimentoApplicationService -  buscaProcedimentosPorCliente");
-		return null;
+		return ProcedimentoResponse.converte(procedimentosDoCliente);
 	}
 }

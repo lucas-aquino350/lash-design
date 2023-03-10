@@ -45,6 +45,7 @@ public class Procedimento {
 	@NotNull
     private LocalDate proximaManutencao;
 	
+	
 	private LocalDateTime dataHoraCriacao;
 	private LocalDateTime dataHoraUltimaAlteracao;
 	

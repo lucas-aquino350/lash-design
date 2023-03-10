@@ -46,6 +46,7 @@ public class Cliente {
 	private LocalDate dataDeNascimento;
 	@NotNull
 	private Boolean aceitaTermos;
+
 	
 	private LocalDateTime dataHoraCriacao;
 	private LocalDateTime dataHoraUltimaAlteracao;

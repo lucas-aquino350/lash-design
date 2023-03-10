@@ -26,10 +26,12 @@ public class ProcedimentoResponse {
     private String observacao;
     private LocalDate proximaManutencao;
     
-	public static List<ProcedimentoResponse> converte(List<Procedimento> procedimentos) {
-		return procedimentos.stream().map(ProcedimentoResponse::new).collect(Collectors.toList());
+    public static List<ProcedimentoResponse> converte(List<Procedimento> procedimentosDoCliente) {
+		return procedimentosDoCliente.stream()
+				.map(ProcedimentoResponse::new)
+				.collect(Collectors.toList());
 	}
-
+    
 	public ProcedimentoResponse(Procedimento procedimento) {
 		this.idProcedimento = procedimento.getIdProcedimento();
 		this.idCliente = procedimento.getIdCliente();

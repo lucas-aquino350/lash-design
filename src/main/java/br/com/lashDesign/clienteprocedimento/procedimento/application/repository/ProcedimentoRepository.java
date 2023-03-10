@@ -10,4 +10,5 @@ public interface ProcedimentoRepository {
 	Procedimento salva(Procedimento procedimento);
 	List<Procedimento> buscaTodosProcedimentos();
 	Procedimento buscaProcedimentoAtraves(UUID idProcedimento);
+	List<Procedimento> buscaProcedimentoPorCliente(UUID idCliente);
 }
