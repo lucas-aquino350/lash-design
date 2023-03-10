@@ -1,5 +1,7 @@
 package br.com.lashDesign.clienteprocedimento.procedimento.application.api;
 
+import java.util.List;
+
 import javax.validation.Valid;
 
 import org.springframework.web.bind.annotation.RestController;
@@ -23,4 +25,10 @@ public class ProcedimentoController implements ProcedimentoApi {
 		return procedimentoCriado;
 	}
 
+	@Override
+	public List<ProcedimentoListResponse> getTodosProcedimentos() {
+		log.info("[start] ProcedimentoController  - getTodosProcedimentos");
+		log.info("[finish] ProcedimentoController  - getTodosProcedimentos");
+		return null;
+	}
 }
