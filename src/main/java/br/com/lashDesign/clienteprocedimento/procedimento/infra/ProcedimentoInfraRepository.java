@@ -1,9 +1,12 @@
 package br.com.lashDesign.clienteprocedimento.procedimento.infra;
 
 import java.util.List;
+import java.util.UUID;
 
+import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Repository;
 
+import br.com.lashDesign.clienteprocedimento.handler.APIException;
 import br.com.lashDesign.clienteprocedimento.procedimento.application.repository.ProcedimentoRepository;
 import br.com.lashDesign.clienteprocedimento.procedimento.domain.Procedimento;
 import lombok.RequiredArgsConstructor;
@@ -30,5 +33,14 @@ public class ProcedimentoInfraRepository implements ProcedimentoRepository {
 		List<Procedimento> todosProcedimentos = procedimentoSpringDataJpaRepository.findAll();
 		log.info("[finish] ProcedimentoInfraRepository - buscaTodosProcedimentos");
 		return todosProcedimentos;
+	}
+
+	@Override
+	public Procedimento buscaProcedimentoAtraves(UUID idProcedimento) {
+		log.info("[start] ProcedimentoInfraRepository - buscaProcedimentoAtraves");
+		Procedimento procedimento = procedimentoSpringDataJpaRepository.findById(idProcedimento)
+				.orElseThrow(() -> APIException.build(HttpStatus.BAD_REQUEST, "Procedimento não encontrado!"));
+		log.info("[finish] ProcedimentoInfraRepository - buscaProcedimentoAtraves");
+		return procedimento;
 	}
 }

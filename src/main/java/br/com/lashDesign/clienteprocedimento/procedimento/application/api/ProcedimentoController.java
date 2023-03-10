@@ -1,6 +1,7 @@
 package br.com.lashDesign.clienteprocedimento.procedimento.application.api;
 
 import java.util.List;
+import java.util.UUID;
 
 import javax.validation.Valid;
 
@@ -31,5 +32,14 @@ public class ProcedimentoController implements ProcedimentoApi {
 		List<ProcedimentoListResponse> procedimentos = procedimentoService.buscaTodosProcedimentos();
 		log.info("[finish] ProcedimentoController  - getTodosProcedimentos");
 		return procedimentos;
+	}
+
+	@Override
+	public ProcedimentoDetalhadoResponse getProcedimentoAtravesId(UUID idProcedimento) {
+		log.info("[start] ProcedimentoController  - getProcedimentoAtravesId");
+		log.info("[idProcedimento] {}", idProcedimento);
+		ProcedimentoDetalhadoResponse procedimentoDetalhado = procedimentoService.buscaProcedimentoAtravesId(idProcedimento);
+		log.info("[finish] ProcedimentoController  - getProcedimentoAtravesId");
+		return procedimentoDetalhado;
 	}
 }
