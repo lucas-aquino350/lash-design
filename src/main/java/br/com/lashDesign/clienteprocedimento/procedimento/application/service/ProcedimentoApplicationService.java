@@ -63,4 +63,11 @@ public class ProcedimentoApplicationService implements ProcedimentoService {
 		log.info("[finish] ProcedimentoApplicationService -  buscaProcedimentosPorCliente");
 		return ProcedimentoListResponse.converte(procedimentosDoCliente);
 	}
+
+	@Override
+	public List<ProcedimentoListResponse> buscaProcedimentosPorExtensionista(UUID idExtensionista) {
+		log.info("[start] ProcedimentoApplicationService - buscaProcedimentosPorExtensionista");
+		log.info("[finish] ProcedimentoApplicationService - buscaProcedimentosPorExtensionista");
+		return null;
+	}
 }

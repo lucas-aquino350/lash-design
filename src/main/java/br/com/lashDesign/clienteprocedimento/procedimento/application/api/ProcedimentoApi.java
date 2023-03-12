@@ -34,4 +34,8 @@ public interface ProcedimentoApi {
     @ResponseStatus(code = HttpStatus.OK)
 	List<ProcedimentoListResponse> buscaProcedimentosPorCliente ( @PathVariable UUID idCliente);
 	
+	@GetMapping("/listaPorExtensionista/{idExtensionista}")
+    @ResponseStatus(code = HttpStatus.OK)
+	List<ProcedimentoListResponse> buscaProcedimentosPorExtensionista ( @PathVariable UUID idExtensionista);
+	
 }

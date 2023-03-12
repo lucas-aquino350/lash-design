@@ -51,4 +51,13 @@ public class ProcedimentoController implements ProcedimentoApi {
 		log.info("[finish] ProcedimentoController  - buscaProcedimentosPorCliente");
 		return procedimentos;
 	}
+
+	@Override
+	public List<ProcedimentoListResponse> buscaProcedimentosPorExtensionista(UUID idExtensionista) {
+		log.info("[start] ProcedimentoController  - buscaProcedimentosPorExtensionista");
+		log.info("[idExtensionista] {}", idExtensionista);
+		List<ProcedimentoListResponse> procedimentos = procedimentoService.buscaProcedimentosPorExtensionista(idExtensionista);
+		log.info("[finish] ProcedimentoController  - buscaProcedimentosPorExtensionista");
+		return procedimentos;
+	}
 }
