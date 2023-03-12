@@ -18,7 +18,7 @@ import lombok.extern.log4j.Log4j2;
 @RequiredArgsConstructor
 public class ClienteInfraRepository implements ClienteRepository {
 
-	private final ClienteSpringDataJpaRepository clienteSpringDataJpaRepository;
+	private final ClienteMongoSpringRepository clienteSpringDataJpaRepository;
 
 	@Override
 	public Cliente salva(Cliente cliente) {
@@ -43,7 +43,7 @@ public class ClienteInfraRepository implements ClienteRepository {
 	@Override
 	public Cliente buscaClienteAtravesID(UUID idCliente) {
 		log.info("[start] ClienteInfraRepository - buscaClienteAtravesID");
-		Cliente cliente = clienteSpringDataJpaRepository.findById(idCliente)
+		Cliente cliente = clienteSpringDataJpaRepository.findByIdCliente(idCliente)
 				.orElseThrow(() -> APIException.build(HttpStatus.BAD_REQUEST,"Cliente não encontrado!"));
 		log.info("[finish] ClienteInfraRepository - buscaClienteAtravesID");
 		return cliente;

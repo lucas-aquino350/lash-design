@@ -20,7 +20,7 @@ public interface ProcedimentoApi {
 
 	@PostMapping
 	@ResponseStatus(code = HttpStatus.CREATED)
-	ProcedimentoIdResponse postProcedimento (@Valid @RequestBody ProcedimentoRequest procedimentoRequest);
+	ProcedimentoResponse postProcedimento (@Valid @RequestBody ProcedimentoRequest procedimentoRequest);
 	
 	@GetMapping
 	@ResponseStatus(code = HttpStatus.OK)
@@ -32,6 +32,6 @@ public interface ProcedimentoApi {
 	
 	@GetMapping("/listaPorCliente/{idCliente}")
     @ResponseStatus(code = HttpStatus.OK)
-    List<ProcedimentoResponse> buscaProcedimentosPorCliente ( @PathVariable UUID idCliente);
+	List<ProcedimentoListResponse> buscaProcedimentosPorCliente ( @PathVariable UUID idCliente);
 	
 }

@@ -4,43 +4,44 @@ import java.time.LocalDate;
 import java.time.LocalDateTime;
 import java.util.UUID;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.validation.constraints.Email;
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotNull;
+
 import org.hibernate.validator.constraints.br.CPF;
+import org.springframework.data.mongodb.core.index.Indexed;
+import org.springframework.data.mongodb.core.mapping.Document;
 
 import br.com.lashDesign.clienteprocedimento.extensionista.application.api.ExtensionistaAlteracaoRequest;
 import br.com.lashDesign.clienteprocedimento.extensionista.application.api.ExtensionistaRequest;
 import lombok.AccessLevel;
+import lombok.AllArgsConstructor;
+import lombok.Builder;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 
+@Builder
+@AllArgsConstructor(access = AccessLevel.PRIVATE)
 @NoArgsConstructor(access = AccessLevel.PRIVATE)
 @Getter
-@Entity
+@Document(collection = "extensionista")
 public class Extensionista {
 
 	@Id
-	@GeneratedValue(strategy = GenerationType.AUTO)
-	@Column(columnDefinition = "uuid", name = "idCliente", updatable = false, unique = true, nullable = false)
 	private UUID idExtensionista;
 	@NotBlank
 	private String nomeCompleto;
 	@NotBlank
 	@CPF
-	@Column(unique = true)
+	@Indexed(unique = true)
 	private String cpf;
 	@NotBlank
 	private String telefone;
 	private TipoDeTecnica tipoDeTecnica;
 	@NotBlank
 	@Email
-	@Column(unique = true)
+	@Indexed(unique = true)
 	private String email;
 	@NotNull
 	private LocalDate dataDeNascimento;
@@ -49,6 +50,7 @@ public class Extensionista {
 	private LocalDateTime dataHoraUltimaAlteracao;
 	
 	public Extensionista(ExtensionistaRequest extensionistaRequest) {
+		this.idExtensionista = UUID.randomUUID();
 		this.nomeCompleto = extensionistaRequest.getNomeCompleto();
 		this.cpf = extensionistaRequest.getCpf();
 		this.telefone = extensionistaRequest.getTelefone();

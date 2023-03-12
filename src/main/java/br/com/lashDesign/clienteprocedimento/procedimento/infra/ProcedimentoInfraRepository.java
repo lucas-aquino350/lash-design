@@ -17,12 +17,12 @@ import lombok.extern.log4j.Log4j2;
 @RequiredArgsConstructor
 public class ProcedimentoInfraRepository implements ProcedimentoRepository {
 
-	private final ProcedimentoSpringDataJpaRepository procedimentoSpringDataJpaRepository;
+	private final ProcedimentoMongoSpringRepository procedimentoMongoSpringRepository;
 
 	@Override
 	public Procedimento salva(Procedimento procedimento) {
 		log.info("[start] ProcedimentoInfraRepository - salva");
-		procedimentoSpringDataJpaRepository.save(procedimento);
+		procedimentoMongoSpringRepository.save(procedimento);
 		log.info("[finish] ProcedimentoInfraRepository - salva");
 		return procedimento;
 	}
@@ -30,7 +30,7 @@ public class ProcedimentoInfraRepository implements ProcedimentoRepository {
 	@Override
 	public List<Procedimento> buscaTodosProcedimentos() {
 		log.info("[start] ProcedimentoInfraRepository - buscaTodosProcedimentos");
-		List<Procedimento> todosProcedimentos = procedimentoSpringDataJpaRepository.findAll();
+		List<Procedimento> todosProcedimentos = procedimentoMongoSpringRepository.findAll();
 		log.info("[finish] ProcedimentoInfraRepository - buscaTodosProcedimentos");
 		return todosProcedimentos;
 	}
@@ -38,7 +38,7 @@ public class ProcedimentoInfraRepository implements ProcedimentoRepository {
 	@Override
 	public Procedimento buscaProcedimentoAtraves(UUID idProcedimento) {
 		log.info("[start] ProcedimentoInfraRepository - buscaProcedimentoAtraves");
-		Procedimento procedimento = procedimentoSpringDataJpaRepository.findById(idProcedimento)
+		Procedimento procedimento = procedimentoMongoSpringRepository.findById(idProcedimento)
 				.orElseThrow(() -> APIException.build(HttpStatus.BAD_REQUEST, "Procedimento não encontrado!"));
 		log.info("[finish] ProcedimentoInfraRepository - buscaProcedimentoAtraves");
 		return procedimento;
@@ -47,7 +47,7 @@ public class ProcedimentoInfraRepository implements ProcedimentoRepository {
 	@Override
 	public List<Procedimento> buscaProcedimentoPorCliente(UUID idCliente) {
 		log.info("[start] ProcedimentoInfraRepository - buscaProcedimentoPorCliente");
-		List<Procedimento> listaDeProcedimentos = procedimentoSpringDataJpaRepository.findAllByIdCliente(idCliente);
+		List<Procedimento> listaDeProcedimentos = procedimentoMongoSpringRepository.findAllByIdCliente(idCliente);
 		log.info("[finish] ProcedimentoInfraRepository - buscaProcedimentoPorCliente");
 		return listaDeProcedimentos;
 	}

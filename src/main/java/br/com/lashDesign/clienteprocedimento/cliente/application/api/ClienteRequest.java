@@ -7,6 +7,7 @@ import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotNull;
 
 import org.hibernate.validator.constraints.br.CPF;
+import org.springframework.data.mongodb.core.index.Indexed;
 
 import lombok.Value;
 
@@ -17,11 +18,13 @@ public class ClienteRequest {
 	private String nomeCompleto;
 	@NotBlank
 	@CPF
+	@Indexed(unique = true)
 	private String cpf;
 	@NotBlank
 	private String telefone;
 	@NotBlank
 	@Email
+	@Indexed(unique = true)
 	private String email;
 	@NotNull
 	private LocalDate dataDeNascimento;

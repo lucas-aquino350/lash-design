@@ -5,27 +5,27 @@ import java.time.LocalDateTime;
 import java.time.LocalTime;
 import java.util.UUID;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotNull;
 
+import org.springframework.data.mongodb.core.mapping.Document;
+
 import br.com.lashDesign.clienteprocedimento.procedimento.application.api.ProcedimentoRequest;
 import lombok.AccessLevel;
+import lombok.AllArgsConstructor;
+import lombok.Builder;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 
+@Builder
+@AllArgsConstructor(access = AccessLevel.PRIVATE)
 @NoArgsConstructor(access = AccessLevel.PRIVATE)
 @Getter
-@Entity
+@Document(collection = "procedimento")
 public class Procedimento {
 
 	@Id
-	@GeneratedValue(strategy = GenerationType.AUTO)
-	@Column(columnDefinition = "uuid", name = "idProcedimento", updatable = false, unique = true, nullable = false)
 	private UUID idProcedimento;
 	@NotNull
 	private UUID idCliente;
@@ -50,6 +50,7 @@ public class Procedimento {
 	private LocalDateTime dataHoraUltimaAlteracao;
 	
 	public Procedimento(ProcedimentoRequest procedimentoRequest) {
+		this.idProcedimento = UUID.randomUUID();
 		this.idCliente = procedimentoRequest.getIdCliente();
 		this.tipoTecnica = procedimentoRequest.getTipoTecnica();
 		this.idExtensionista = procedimentoRequest.getIdExtensionista();

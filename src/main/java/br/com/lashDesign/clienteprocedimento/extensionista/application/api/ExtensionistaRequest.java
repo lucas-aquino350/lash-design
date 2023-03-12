@@ -2,12 +2,12 @@ package br.com.lashDesign.clienteprocedimento.extensionista.application.api;
 
 import java.time.LocalDate;
 
-import javax.persistence.Column;
 import javax.validation.constraints.Email;
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotNull;
 
 import org.hibernate.validator.constraints.br.CPF;
+import org.springframework.data.mongodb.core.index.Indexed;
 
 import br.com.lashDesign.clienteprocedimento.extensionista.domain.TipoDeTecnica;
 import lombok.Value;
@@ -19,14 +19,14 @@ public class ExtensionistaRequest {
 	private String nomeCompleto;
 	@NotBlank
 	@CPF
-	@Column(unique = true)
+	@Indexed(unique = true)
 	private String cpf;
 	@NotBlank
 	private String telefone;
 	private TipoDeTecnica tipoDeTecnica;
 	@NotBlank
 	@Email
-	@Column(unique = true)
+	@Indexed(unique = true)
 	private String email;
 	@NotNull
 	private LocalDate dataDeNascimento;

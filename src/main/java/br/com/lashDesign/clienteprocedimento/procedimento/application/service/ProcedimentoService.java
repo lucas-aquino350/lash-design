@@ -6,15 +6,14 @@ import java.util.UUID;
 import javax.validation.Valid;
 
 import br.com.lashDesign.clienteprocedimento.procedimento.application.api.ProcedimentoDetalhadoResponse;
-import br.com.lashDesign.clienteprocedimento.procedimento.application.api.ProcedimentoIdResponse;
+import br.com.lashDesign.clienteprocedimento.procedimento.application.api.ProcedimentoResponse;
 import br.com.lashDesign.clienteprocedimento.procedimento.application.api.ProcedimentoListResponse;
 import br.com.lashDesign.clienteprocedimento.procedimento.application.api.ProcedimentoRequest;
-import br.com.lashDesign.clienteprocedimento.procedimento.application.api.ProcedimentoResponse;
 
 public interface ProcedimentoService {
 
-	ProcedimentoIdResponse criaProcedimento(@Valid ProcedimentoRequest procedimentoRequest);
+	ProcedimentoResponse criaProcedimento(@Valid ProcedimentoRequest procedimentoRequest);
 	List<ProcedimentoListResponse> buscaTodosProcedimentos();
 	ProcedimentoDetalhadoResponse buscaProcedimentoAtravesId(UUID idProcedimento);
-	List<ProcedimentoResponse> buscaProcedimentosPorCliente(UUID idCliente);
+	List<ProcedimentoListResponse>buscaProcedimentosPorCliente(UUID idCliente);
 }

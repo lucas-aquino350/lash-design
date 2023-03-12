@@ -18,13 +18,13 @@ import lombok.extern.log4j.Log4j2;
 @RequiredArgsConstructor
 public class ExtensionistaInfraRepository implements ExtensionistaRepository {
 
-	private final ExtensionistaSpringDataJpaRepository extensionistaSpringDataJpaRepository;
+	private final ExtensionistaMongoSpringRepository extensionistaMongoSpringRepository;
 
 	@Override
 	public Extensionista salva(Extensionista extensionista) {
 		log.info("[start] ExtensionistaInfraRepository - salva ");
 		try {
-			extensionistaSpringDataJpaRepository.save(extensionista);
+			extensionistaMongoSpringRepository.save(extensionista);
 		} catch(DataIntegrityViolationException e){
 		    throw APIException.build(HttpStatus.BAD_REQUEST, "Existem dados duplicados",e);
 		}
@@ -35,7 +35,7 @@ public class ExtensionistaInfraRepository implements ExtensionistaRepository {
 	@Override
 	public List<Extensionista> buscaTodasExtensionistas() {
 		log.info("[start] ExtensionistaInfraRepository - buscaTodasExtensionistas ");
-		List<Extensionista> todasExtensionistas = extensionistaSpringDataJpaRepository.findAll();
+		List<Extensionista> todasExtensionistas = extensionistaMongoSpringRepository.findAll();
 		log.info("[finish] ExtensionistaInfraRepository - buscaTodasExtensionistas ");
 		return todasExtensionistas;
 	}
@@ -43,7 +43,7 @@ public class ExtensionistaInfraRepository implements ExtensionistaRepository {
 	@Override
 	public Extensionista buscaExtensionistaAtravesId(UUID idExtensionista) {
 		log.info("[start] ExtensionistaInfraRepository - buscaExtensionistaAtravesId");
-		Extensionista extensionista = extensionistaSpringDataJpaRepository.findById(idExtensionista)
+		Extensionista extensionista = extensionistaMongoSpringRepository.findByIdExtensionista(idExtensionista)
 				.orElseThrow(() ->  APIException.build(HttpStatus.BAD_REQUEST, "Extensionista não encontrada!"));
 		log.info("[finish] ExtensionistaInfraRepository - buscaExtensionistaAtravesId");
 		return extensionista;
@@ -52,7 +52,7 @@ public class ExtensionistaInfraRepository implements ExtensionistaRepository {
 	@Override
 	public void deletaExtensionistaAtravesId(Extensionista extensionista) {
 		log.info("[start] ExtensionistaInfraRepository - deletaExtensionistaAtravesId");
-		extensionistaSpringDataJpaRepository.delete(extensionista);
+		extensionistaMongoSpringRepository.delete(extensionista);
 		log.info("[finish] ExtensionistaInfraRepository - deletaExtensionistaAtravesId");
 	}
 }

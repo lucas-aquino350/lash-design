@@ -10,10 +10,9 @@ import org.springframework.stereotype.Service;
 import br.com.lashDesign.clienteprocedimento.cliente.application.repository.ClienteRepository;
 import br.com.lashDesign.clienteprocedimento.extensionista.application.repository.ExtensionistaRepository;
 import br.com.lashDesign.clienteprocedimento.procedimento.application.api.ProcedimentoDetalhadoResponse;
-import br.com.lashDesign.clienteprocedimento.procedimento.application.api.ProcedimentoIdResponse;
+import br.com.lashDesign.clienteprocedimento.procedimento.application.api.ProcedimentoResponse;
 import br.com.lashDesign.clienteprocedimento.procedimento.application.api.ProcedimentoListResponse;
 import br.com.lashDesign.clienteprocedimento.procedimento.application.api.ProcedimentoRequest;
-import br.com.lashDesign.clienteprocedimento.procedimento.application.api.ProcedimentoResponse;
 import br.com.lashDesign.clienteprocedimento.procedimento.application.repository.ProcedimentoRepository;
 import br.com.lashDesign.clienteprocedimento.procedimento.domain.Procedimento;
 import lombok.RequiredArgsConstructor;
@@ -29,13 +28,13 @@ public class ProcedimentoApplicationService implements ProcedimentoService {
     private final ExtensionistaRepository extensionistaRepository;
 
 	@Override
-	public ProcedimentoIdResponse criaProcedimento(@Valid ProcedimentoRequest procedimentoRequest) {
+	public ProcedimentoResponse criaProcedimento(@Valid ProcedimentoRequest procedimentoRequest) {
 		log.info("[start] ProcedimentoApplicationService - criaProcedimento");
-		clienteRepository.buscaClienteAtravesID(procedimentoRequest.getIdCliente());
+        clienteRepository.buscaClienteAtravesID(procedimentoRequest.getIdCliente());
 		extensionistaRepository.buscaExtensionistaAtravesId(procedimentoRequest.getIdExtensionista());
 		Procedimento procedimento = procedimentoRepository.salva(new Procedimento(procedimentoRequest));
 		log.info("[finish] ProcedimentoApplicationService - criaProcedimento");
-		return ProcedimentoIdResponse.builder()
+		return ProcedimentoResponse.builder()
 				.idProcedimento(procedimento.getIdProcedimento())
 				.build();
 	}
@@ -57,12 +56,11 @@ public class ProcedimentoApplicationService implements ProcedimentoService {
 	}
 
 	@Override
-	public List<ProcedimentoResponse> buscaProcedimentosPorCliente(UUID idCliente) {
+	public List<ProcedimentoListResponse> buscaProcedimentosPorCliente(UUID idCliente) {
 		log.info("[start] ProcedimentoApplicationService -  buscaProcedimentosPorCliente");
-		clienteRepository.buscaClienteAtravesID(idCliente);
-		//List<Procedimento> procedimentos = procedimentoRepository.buscaTodosProcedimentos();
+		 clienteRepository.buscaClienteAtravesID(idCliente);
 		List<Procedimento> procedimentosDoCliente = procedimentoRepository.buscaProcedimentoPorCliente(idCliente);
 		log.info("[finish] ProcedimentoApplicationService -  buscaProcedimentosPorCliente");
-		return ProcedimentoResponse.converte(procedimentosDoCliente);
+		return ProcedimentoListResponse.converte(procedimentosDoCliente);
 	}
 }

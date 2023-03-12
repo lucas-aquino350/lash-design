@@ -3,13 +3,9 @@ server:
     context-path: /cliente-procedimento/api
 
 spring:
-  datasource:
-    url: jdbc:h2:mem:demodb
-    username: sa
-    password: 
-    driverClassName:
-    
-  h2:
-    console:
-      enabled: true
-      path: /h2-console       
+  data:
+    mongodb:
+      authentication-database: admin
+      uri: ${MONGO_DB_URI:mongodb+srv://joao:lucas@cluster0.hrm0vwe.mongodb.net/cluster0?retryWrites=true&w=majority}
+      auto-index-creation: true  
+        

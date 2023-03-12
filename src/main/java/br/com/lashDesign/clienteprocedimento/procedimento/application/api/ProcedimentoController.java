@@ -19,9 +19,9 @@ public class ProcedimentoController implements ProcedimentoApi {
 	private final ProcedimentoService procedimentoService;
 
 	@Override
-	public ProcedimentoIdResponse postProcedimento(@Valid ProcedimentoRequest procedimentoRequest) {
+	public ProcedimentoResponse postProcedimento(@Valid ProcedimentoRequest procedimentoRequest) {
 		log.info("[start] ProcedimentoController  - postProcedimento");
-		ProcedimentoIdResponse procedimentoCriado = procedimentoService.criaProcedimento(procedimentoRequest);
+		ProcedimentoResponse procedimentoCriado = procedimentoService.criaProcedimento(procedimentoRequest);
 		log.info("[finish] ProcedimentoController  - postProcedimento");
 		return procedimentoCriado;
 	}
@@ -44,10 +44,10 @@ public class ProcedimentoController implements ProcedimentoApi {
 	}
 
 	@Override
-	public List<ProcedimentoResponse> buscaProcedimentosPorCliente(UUID idCliente) {
+	public List<ProcedimentoListResponse> buscaProcedimentosPorCliente(UUID idCliente) {
 		log.info("[start] ProcedimentoController  - buscaProcedimentosPorCliente");
 		log.info("[idCliente] {}", idCliente);
-		List<ProcedimentoResponse> procedimentos = procedimentoService.buscaProcedimentosPorCliente(idCliente);
+		List<ProcedimentoListResponse> procedimentos = procedimentoService.buscaProcedimentosPorCliente(idCliente);
 		log.info("[finish] ProcedimentoController  - buscaProcedimentosPorCliente");
 		return procedimentos;
 	}
