@@ -10,4 +10,5 @@ import br.com.lashDesign.clienteprocedimento.procedimento.domain.Procedimento;
 public interface ProcedimentoMongoSpringRepository extends MongoRepository<Procedimento, UUID>{
 
 	List<Procedimento> findAllByIdCliente(UUID idCliente);
+	List<Procedimento> findAllByIdExtensionista(UUID idExtensionista);
 }

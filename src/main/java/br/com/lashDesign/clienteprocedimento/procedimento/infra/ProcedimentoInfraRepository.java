@@ -51,4 +51,12 @@ public class ProcedimentoInfraRepository implements ProcedimentoRepository {
 		log.info("[finish] ProcedimentoInfraRepository - buscaProcedimentoPorCliente");
 		return listaDeProcedimentos;
 	}
+
+	@Override
+	public List<Procedimento> buscaProcedimentosPorExtensionista(UUID idExtensionista) {
+		log.info("[start] ProcedimentoInfraRepository - buscaProcedimentosPorExtensionista");
+		List<Procedimento> listaDeProcedimentos = procedimentoMongoSpringRepository.findAllByIdExtensionista(idExtensionista);
+		log.info("[finish] ProcedimentoInfraRepository - buscaProcedimentosPorExtensionista");
+		return listaDeProcedimentos;
+	}
 }

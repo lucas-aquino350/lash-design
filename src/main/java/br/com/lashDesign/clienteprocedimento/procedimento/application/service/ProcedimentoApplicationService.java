@@ -58,7 +58,7 @@ public class ProcedimentoApplicationService implements ProcedimentoService {
 	@Override
 	public List<ProcedimentoListResponse> buscaProcedimentosPorCliente(UUID idCliente) {
 		log.info("[start] ProcedimentoApplicationService -  buscaProcedimentosPorCliente");
-		 clienteRepository.buscaClienteAtravesID(idCliente);
+		clienteRepository.buscaClienteAtravesID(idCliente);
 		List<Procedimento> procedimentosDoCliente = procedimentoRepository.buscaProcedimentoPorCliente(idCliente);
 		log.info("[finish] ProcedimentoApplicationService -  buscaProcedimentosPorCliente");
 		return ProcedimentoListResponse.converte(procedimentosDoCliente);
@@ -67,7 +67,9 @@ public class ProcedimentoApplicationService implements ProcedimentoService {
 	@Override
 	public List<ProcedimentoListResponse> buscaProcedimentosPorExtensionista(UUID idExtensionista) {
 		log.info("[start] ProcedimentoApplicationService - buscaProcedimentosPorExtensionista");
+		extensionistaRepository.buscaExtensionistaAtravesId(idExtensionista);
+		List<Procedimento> procedimentosDaExtensionista = procedimentoRepository.buscaProcedimentosPorExtensionista(idExtensionista);
 		log.info("[finish] ProcedimentoApplicationService - buscaProcedimentosPorExtensionista");
-		return null;
+		return ProcedimentoListResponse.converte(procedimentosDaExtensionista);
 	}
 }
