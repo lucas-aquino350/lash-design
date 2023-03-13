@@ -1,17 +1,16 @@
 package br.com.lashDesign.clienteprocedimento.cliente.infra;
 
-import java.util.List;
-import java.util.UUID;
-
-import org.springframework.dao.DataIntegrityViolationException;
-import org.springframework.http.HttpStatus;
-import org.springframework.stereotype.Repository;
-
 import br.com.lashDesign.clienteprocedimento.cliente.application.repository.ClienteRepository;
 import br.com.lashDesign.clienteprocedimento.cliente.domain.Cliente;
 import br.com.lashDesign.clienteprocedimento.handler.APIException;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.log4j.Log4j2;
+import org.springframework.dao.DataIntegrityViolationException;
+import org.springframework.http.HttpStatus;
+import org.springframework.stereotype.Repository;
+
+import java.util.List;
+import java.util.UUID;
 
 @Repository
 @Log4j2

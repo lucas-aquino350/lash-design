@@ -2,6 +2,7 @@ package br.com.lashDesign.clienteprocedimento.procedimento.infra;
 
 import java.time.LocalDate;
 import java.util.List;
+import java.util.Optional;
 import java.util.UUID;
 
 import org.springframework.data.mongodb.repository.MongoRepository;
@@ -13,4 +14,5 @@ public interface ProcedimentoMongoSpringRepository extends MongoRepository<Proce
 	List<Procedimento> findAllByIdCliente(UUID idCliente);
 	List<Procedimento> findAllByIdExtensionista(UUID idExtensionista);
 	List<Procedimento> findAllByDataDoProcedimento(LocalDate data);
+	Optional<Procedimento> findByIdProcedimento(UUID idProcedimento);
 }

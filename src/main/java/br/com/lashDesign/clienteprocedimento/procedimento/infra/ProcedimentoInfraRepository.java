@@ -39,7 +39,7 @@ public class ProcedimentoInfraRepository implements ProcedimentoRepository {
 	@Override
 	public Procedimento buscaProcedimentoAtraves(UUID idProcedimento) {
 		log.info("[start] ProcedimentoInfraRepository - buscaProcedimentoAtraves");
-		Procedimento procedimento = procedimentoMongoSpringRepository.findById(idProcedimento)
+		Procedimento procedimento = procedimentoMongoSpringRepository.findByIdProcedimento(idProcedimento)
 				.orElseThrow(() -> APIException.build(HttpStatus.BAD_REQUEST, "Procedimento não encontrado!"));
 		log.info("[finish] ProcedimentoInfraRepository - buscaProcedimentoAtraves");
 		return procedimento;
@@ -67,5 +67,12 @@ public class ProcedimentoInfraRepository implements ProcedimentoRepository {
 		List<Procedimento> listaDeProcedimentos = procedimentoMongoSpringRepository.findAllByDataDoProcedimento(data);
 		log.info("[finish] ProcedimentoInfraRepository - buscaProcedimentosPorData");
 		return listaDeProcedimentos;
+	}
+
+	@Override
+	public void deleta(UUID idProcedimento) {
+		log.info("[start] ProcedimentoInfraRepository - deleta");
+		procedimentoMongoSpringRepository.deleteById(idProcedimento);
+		log.info("[finish] ProcedimentoInfraRepository - deleta");	
 	}
 }

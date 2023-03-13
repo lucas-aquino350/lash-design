@@ -86,4 +86,12 @@ public class ProcedimentoApplicationService implements ProcedimentoService {
 		log.info("[finish] ProcedimentoApplicationService - buscaProcedimentosPorDataProcedimento");
 		return ProcedimentoListResponse.converte(procedimentosPorData);
 	}
+
+	@Override
+	public void deletaProcedimentoAtravesId(UUID idProcedimento) {
+		log.info("[start] ProcedimentoApplicationService - deletaProcedimentoAtravesId");
+		procedimentoRepository.buscaProcedimentoAtraves(idProcedimento);
+		procedimentoRepository.deleta(idProcedimento);
+		log.info("[finish] ProcedimentoApplicationService - deletaProcedimentoAtravesId");
+	}
 }

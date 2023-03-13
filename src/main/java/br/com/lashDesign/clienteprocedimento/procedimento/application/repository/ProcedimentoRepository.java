@@ -14,4 +14,5 @@ public interface ProcedimentoRepository {
 	List<Procedimento> buscaProcedimentoPorCliente(UUID idCliente);
 	List<Procedimento> buscaProcedimentosPorExtensionista(UUID idExtensionista);
 	List<Procedimento> buscaProcedimentosPorData(LocalDate data);
+	void deleta( UUID idProcedimento);
 }
