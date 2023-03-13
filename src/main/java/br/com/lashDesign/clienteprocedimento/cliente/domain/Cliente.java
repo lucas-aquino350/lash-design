@@ -25,7 +25,7 @@ import lombok.NoArgsConstructor;
 @AllArgsConstructor(access = AccessLevel.PRIVATE)
 @NoArgsConstructor(access = AccessLevel.PRIVATE)
 @Getter
-@Document(collection = "cliente")
+@Document(collection = "Cliente")
 public class Cliente {
 
 	@Id

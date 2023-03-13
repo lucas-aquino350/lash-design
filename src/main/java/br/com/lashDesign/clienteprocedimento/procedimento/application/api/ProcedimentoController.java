@@ -78,4 +78,12 @@ public class ProcedimentoController implements ProcedimentoApi {
 		procedimentoService.deletaProcedimentoAtravesId(idProcedimento);
 		log.info("[finish] ProcedimentoController  - deletaProcedimentoAtravesId");
 	}
+
+	@Override
+	public void patchAlteraProcedimento( UUID idProcedimento, ProcedimentoAlteracaoRequest procedimentoAlteracaoRequest) {
+		log.info("[start] ProcedimentoController  - patchAlteraProcedimento");
+		log.info("[idProcedimento] {}", idProcedimento);
+		procedimentoService.alteraProcedimento(idProcedimento, procedimentoAlteracaoRequest);
+		log.info("[start] ProcedimentoController  - patchAlteraProcedimento");
+	}
 }

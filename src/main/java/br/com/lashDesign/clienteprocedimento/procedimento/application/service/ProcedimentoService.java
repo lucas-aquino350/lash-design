@@ -5,6 +5,7 @@ import java.util.UUID;
 
 import javax.validation.Valid;
 
+import br.com.lashDesign.clienteprocedimento.procedimento.application.api.ProcedimentoAlteracaoRequest;
 import br.com.lashDesign.clienteprocedimento.procedimento.application.api.ProcedimentoDetalhadoResponse;
 import br.com.lashDesign.clienteprocedimento.procedimento.application.api.ProcedimentoResponse;
 import br.com.lashDesign.clienteprocedimento.procedimento.application.api.ProcedimentoListResponse;
@@ -19,4 +20,5 @@ public interface ProcedimentoService {
 	List<ProcedimentoListResponse> buscaProcedimentosPorExtensionista(UUID idExtensionista);
 	List<ProcedimentoListResponse> buscaProcedimentosPorDataProcedimento(String dataDoProcedimento);
 	void deletaProcedimentoAtravesId(UUID idProcedimento);
+	void alteraProcedimento(UUID idProcedimento, ProcedimentoAlteracaoRequest procedimentoAlteracaoRequest);
 }

@@ -11,6 +11,7 @@ import org.springframework.stereotype.Service;
 
 import br.com.lashDesign.clienteprocedimento.cliente.application.repository.ClienteRepository;
 import br.com.lashDesign.clienteprocedimento.extensionista.application.repository.ExtensionistaRepository;
+import br.com.lashDesign.clienteprocedimento.procedimento.application.api.ProcedimentoAlteracaoRequest;
 import br.com.lashDesign.clienteprocedimento.procedimento.application.api.ProcedimentoDetalhadoResponse;
 import br.com.lashDesign.clienteprocedimento.procedimento.application.api.ProcedimentoListResponse;
 import br.com.lashDesign.clienteprocedimento.procedimento.application.api.ProcedimentoRequest;
@@ -93,5 +94,14 @@ public class ProcedimentoApplicationService implements ProcedimentoService {
 		procedimentoRepository.buscaProcedimentoAtraves(idProcedimento);
 		procedimentoRepository.deleta(idProcedimento);
 		log.info("[finish] ProcedimentoApplicationService - deletaProcedimentoAtravesId");
+	}
+
+	@Override
+	public void alteraProcedimento(UUID idProcedimento, ProcedimentoAlteracaoRequest procedimentoAlteracaoRequest) {
+		log.info("[start] ProcedimentoApplicationService - alteraProcedimento");
+		Procedimento procedimento = procedimentoRepository.buscaProcedimentoAtraves(idProcedimento);
+		procedimento.altera(procedimentoAlteracaoRequest);
+		procedimentoRepository.salva(procedimento);
+		log.info("[start] ProcedimentoApplicationService - alteraProcedimento");
 	}
 }

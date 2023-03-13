@@ -4,13 +4,11 @@ import java.time.LocalDate;
 import java.time.LocalDateTime;
 import java.time.LocalTime;
 import java.util.UUID;
-
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotNull;
-
 import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document;
-
+import br.com.lashDesign.clienteprocedimento.procedimento.application.api.ProcedimentoAlteracaoRequest;
 import br.com.lashDesign.clienteprocedimento.procedimento.application.api.ProcedimentoRequest;
 import lombok.AccessLevel;
 import lombok.AllArgsConstructor;
@@ -22,7 +20,7 @@ import lombok.NoArgsConstructor;
 @AllArgsConstructor(access = AccessLevel.PRIVATE)
 @NoArgsConstructor(access = AccessLevel.PRIVATE)
 @Getter
-@Document(collection = "procedimento")
+@Document(collection = "Procedimento")
 public class Procedimento {
 
 	@Id
@@ -62,5 +60,16 @@ public class Procedimento {
 		this.observacao = procedimentoRequest.getObservacao();
 		this.proximaManutencao = procedimentoRequest.getProximaManutencao();
 		this.dataHoraCriacao = LocalDateTime.now();
+	}
+
+	public void altera(ProcedimentoAlteracaoRequest procedimentoAlteracaoRequest) {
+		this.tipoTecnica = procedimentoAlteracaoRequest.getTipoTecnica();
+		this.salaProcedimento = procedimentoAlteracaoRequest.getSalaProcedimento();
+		this.dataDoProcedimento = procedimentoAlteracaoRequest.getDataDoProcedimento();
+		this.horario = procedimentoAlteracaoRequest.getHorario();
+		this.observacao = procedimentoAlteracaoRequest.getObservacao();
+		this.proximaManutencao = procedimentoAlteracaoRequest.getProximaManutencao();
+		this.dataHoraUltimaAlteracao = LocalDateTime.now();
+		
 	}
 }
