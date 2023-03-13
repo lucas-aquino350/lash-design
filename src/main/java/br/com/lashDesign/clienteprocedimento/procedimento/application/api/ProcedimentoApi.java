@@ -38,4 +38,8 @@ public interface ProcedimentoApi {
     @ResponseStatus(code = HttpStatus.OK)
 	List<ProcedimentoListResponse> buscaProcedimentosPorExtensionista ( @PathVariable UUID idExtensionista);
 	
+	@GetMapping("/listaPorDataProcedimento/{dataDoProcedimento}")
+    @ResponseStatus(code = HttpStatus.OK)
+	List<ProcedimentoListResponse> buscaProcedimentosPorDataProcedimento ( @PathVariable String dataDoProcedimento);
+	
 }

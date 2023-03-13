@@ -1,5 +1,6 @@
 package br.com.lashDesign.clienteprocedimento.procedimento.application.repository;
 
+import java.time.LocalDate;
 import java.util.List;
 import java.util.UUID;
 
@@ -12,4 +13,5 @@ public interface ProcedimentoRepository {
 	Procedimento buscaProcedimentoAtraves(UUID idProcedimento);
 	List<Procedimento> buscaProcedimentoPorCliente(UUID idCliente);
 	List<Procedimento> buscaProcedimentosPorExtensionista(UUID idExtensionista);
+	List<Procedimento> buscaProcedimentosPorData(LocalDate data);
 }

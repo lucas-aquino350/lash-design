@@ -1,5 +1,6 @@
 package br.com.lashDesign.clienteprocedimento.procedimento.infra;
 
+import java.time.LocalDate;
 import java.util.List;
 import java.util.UUID;
 
@@ -57,6 +58,14 @@ public class ProcedimentoInfraRepository implements ProcedimentoRepository {
 		log.info("[start] ProcedimentoInfraRepository - buscaProcedimentosPorExtensionista");
 		List<Procedimento> listaDeProcedimentos = procedimentoMongoSpringRepository.findAllByIdExtensionista(idExtensionista);
 		log.info("[finish] ProcedimentoInfraRepository - buscaProcedimentosPorExtensionista");
+		return listaDeProcedimentos;
+	}
+
+	@Override
+	public List<Procedimento> buscaProcedimentosPorData(LocalDate data) {
+		log.info("[start] ProcedimentoInfraRepository - buscaProcedimentosPorData");
+		List<Procedimento> listaDeProcedimentos = procedimentoMongoSpringRepository.findAllByDataDoProcedimento(data);
+		log.info("[finish] ProcedimentoInfraRepository - buscaProcedimentosPorData");
 		return listaDeProcedimentos;
 	}
 }

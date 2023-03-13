@@ -17,4 +17,5 @@ public interface ProcedimentoService {
 	ProcedimentoDetalhadoResponse buscaProcedimentoAtravesId(UUID idProcedimento);
 	List<ProcedimentoListResponse>buscaProcedimentosPorCliente(UUID idCliente);
 	List<ProcedimentoListResponse> buscaProcedimentosPorExtensionista(UUID idExtensionista);
+	List<ProcedimentoListResponse> buscaProcedimentosPorDataProcedimento(String dataDoProcedimento);
 }

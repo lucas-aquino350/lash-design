@@ -60,4 +60,14 @@ public class ProcedimentoController implements ProcedimentoApi {
 		log.info("[finish] ProcedimentoController  - buscaProcedimentosPorExtensionista");
 		return procedimentos;
 	}
+
+	@Override
+	public List<ProcedimentoListResponse> buscaProcedimentosPorDataProcedimento(String dataDoProcedimento) {
+		log.info("[start] ProcedimentoController  - buscaProcedimentosPorDataProcedimento");
+		log.info("[dataDoProcedimento] {}", dataDoProcedimento);
+		 List<ProcedimentoListResponse> procedimentos = procedimentoService
+				 .buscaProcedimentosPorDataProcedimento(dataDoProcedimento);
+		log.info("[finish] ProcedimentoController  - buscaProcedimentosPorDataProcedimento");
+		return procedimentos;
+	}
 }

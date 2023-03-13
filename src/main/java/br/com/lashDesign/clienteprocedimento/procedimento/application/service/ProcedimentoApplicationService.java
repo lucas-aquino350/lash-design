@@ -1,5 +1,7 @@
 package br.com.lashDesign.clienteprocedimento.procedimento.application.service;
 
+import java.time.LocalDate;
+import java.time.format.DateTimeFormatter;
 import java.util.List;
 import java.util.UUID;
 
@@ -10,9 +12,9 @@ import org.springframework.stereotype.Service;
 import br.com.lashDesign.clienteprocedimento.cliente.application.repository.ClienteRepository;
 import br.com.lashDesign.clienteprocedimento.extensionista.application.repository.ExtensionistaRepository;
 import br.com.lashDesign.clienteprocedimento.procedimento.application.api.ProcedimentoDetalhadoResponse;
-import br.com.lashDesign.clienteprocedimento.procedimento.application.api.ProcedimentoResponse;
 import br.com.lashDesign.clienteprocedimento.procedimento.application.api.ProcedimentoListResponse;
 import br.com.lashDesign.clienteprocedimento.procedimento.application.api.ProcedimentoRequest;
+import br.com.lashDesign.clienteprocedimento.procedimento.application.api.ProcedimentoResponse;
 import br.com.lashDesign.clienteprocedimento.procedimento.application.repository.ProcedimentoRepository;
 import br.com.lashDesign.clienteprocedimento.procedimento.domain.Procedimento;
 import lombok.RequiredArgsConstructor;
@@ -71,5 +73,17 @@ public class ProcedimentoApplicationService implements ProcedimentoService {
 		List<Procedimento> procedimentosDaExtensionista = procedimentoRepository.buscaProcedimentosPorExtensionista(idExtensionista);
 		log.info("[finish] ProcedimentoApplicationService - buscaProcedimentosPorExtensionista");
 		return ProcedimentoListResponse.converte(procedimentosDaExtensionista);
+	}
+
+	@Override
+	public List<ProcedimentoListResponse> buscaProcedimentosPorDataProcedimento(String dataDoProcedimento) {
+		log.info("[start] ProcedimentoApplicationService - buscaProcedimentosPorDataProcedimento");
+		DateTimeFormatter formatoEntrada = DateTimeFormatter.ofPattern("dd-MM-yyyy");
+		DateTimeFormatter formatoSaida = DateTimeFormatter.ofPattern("yyyy-MM-dd");
+		String dataSaida = LocalDate.parse(dataDoProcedimento, formatoEntrada).format(formatoSaida);
+		LocalDate data = LocalDate.parse(dataSaida);
+		List<Procedimento> procedimentosPorData = procedimentoRepository.buscaProcedimentosPorData(data);
+		log.info("[finish] ProcedimentoApplicationService - buscaProcedimentosPorDataProcedimento");
+		return ProcedimentoListResponse.converte(procedimentosPorData);
 	}
 }
