@@ -51,5 +51,4 @@ public interface ProcedimentoApi {
 	@PatchMapping("/{idProcedimento}")
 	@ResponseStatus(code = HttpStatus.NO_CONTENT)
 	void patchAlteraProcedimento(@PathVariable UUID idProcedimento, @Valid @RequestBody ProcedimentoAlteracaoRequest procedimentoAlteracaoRequest);
-	
 }
