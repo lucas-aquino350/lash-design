@@ -1,0 +1,11 @@
+server:
+ servlet:
+    context-path: /cliente-procedimento/api
+
+spring:
+  data:
+    mongodb:
+      authentication-database: admin
+      uri: ${MONGO_DB_URI:mongodb+srv://joao:lucas@cluster0.hrm0vwe.mongodb.net/cluster0?retryWrites=true&w=majority}
+      auto-index-creation: true  
+        
